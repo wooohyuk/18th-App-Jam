@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int stellar = 0;
 
+    public int progress = 0;
+
     private void Awake()
     {
         if(GameManager.Instance == null)

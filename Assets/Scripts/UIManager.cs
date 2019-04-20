@@ -9,7 +9,14 @@ public class UIManager : MonoBehaviour
 
     public Text textStellar;
     public Text textTime;
+    public Text textProgress;
 
+    public GameObject btnNewstory;
+
+    public GameObject imageTalk;
+    public Text textTalk;
+
+    public GameObject panelShop;
     public GameObject panelShopItemContent;
 
     private void Awake()
@@ -20,9 +27,46 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public void ShowShop()
+    {
+        panelShop.SetActive(true);
+    }
+
+    public void ShowNewstory()
+    {
+        btnNewstory.SetActive(true);
+        btnNewstory.GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        StartCoroutine(CorShowNewstory());
+    }
+
+    IEnumerator CorShowNewstory()
+    {
+        for(int i=0; i<100; i++)
+        {
+            yield return new WaitForSeconds(.01f);
+            btnNewstory.GetComponent<Image>().color = new Color(1, 1, 1, btnNewstory.GetComponent<Image>().color.a + 0.01f);
+        }
+    }
+
+    public void HideNewstory()
+    {
+        btnNewstory.GetComponent<Image>().color = new Color(1, 1, 1, 1);
+        StartCoroutine(CorHideNewstory());
+    }
+
+    IEnumerator CorHideNewstory()
+    {
+        for(int i=0; i<100; i++)
+        {
+            yield return new WaitForSeconds(.01f);
+            btnNewstory.GetComponent<Image>().color = new Color(1, 1, 1, btnNewstory.GetComponent<Image>().color.a - 0.01f);
+        }
+        btnNewstory.SetActive(false);
+    }
+
     public void SetTextStellar(int stellar)
     {
-        textStellar.text = stellar + " XLM";
+        textStellar.text = stellar.ToString();
     }
 
     public void SetTextTime(float time)
@@ -31,7 +75,12 @@ public class UIManager : MonoBehaviour
         int min = (int) System.Math.Truncate(time / 60 % 60);
         int sec = (int) System.Math.Truncate(time % 60);
 
-        textTime.text = string.Format("{0}시간 {1}분 {2}초", hour, min, sec);
+        float percent = (time / 86400) * 100;
+
+        textProgress.text = string.Format("연못 진척도 - " + percent.ToString("N2") + "%");
+        // Debug.Log("연못 진척도 - " + percent + "%");
+        
+        // textTime.text = string.Format("{0}시간 {1}분 {2}초", hour, min, sec);
         
         // Debug.Log(sec);
     }

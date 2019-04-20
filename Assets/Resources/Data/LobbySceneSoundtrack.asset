@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2d616cf9f0740e891af9dc4d21210b, type: 3}
+  m_Name: LobbySceneSoundtrack
+  m_EditorClassIdentifier: 
+  soundTrackScene: 0
+  allowedScenes: 00000000
+  soundTrack:
+  - {fileID: 8300000, guid: e7a440c8c89a74b9c8416507f81e9876, type: 3}

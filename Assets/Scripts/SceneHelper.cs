@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 #region Enums
 public enum SceneType
 {
-	Login = 0,
+	Lobby = 0,
 	Main = 1,
 	Book = 2,
 

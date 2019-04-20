@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class ShopItem
 {
     public int id;
+    public int type;
     public int cost;
-    
-    public string name;
+
+    public string itemName;
 }

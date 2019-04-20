@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public Text textStellar;
     public Text textTime;
 
+    public GameObject panelShopItemContent;
+
     private void Awake()
     {
         if(UIManager.Instance == null)
@@ -31,6 +33,6 @@ public class UIManager : MonoBehaviour
 
         textTime.text = string.Format("{0}시간 {1}분 {2}초", hour, min, sec);
         
-        Debug.Log(sec);
+        // Debug.Log(sec);
     }
 }

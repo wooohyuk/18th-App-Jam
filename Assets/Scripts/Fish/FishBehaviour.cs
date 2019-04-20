@@ -26,15 +26,16 @@ public class FishBehaviour : MonoBehaviour
 	{
 		while (true)
 		{
-			yield return new WaitForSeconds(1.2f);
-			pushToRandomDirection();
+			yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+			pushToRandomDirection(scale);
 		}
 
 	}
 
 	public float scale = 12f;
+	public float scaleBig = 22f;
 
-	void pushToRandomDirection()
+	void pushToRandomDirection(float scale)
 	{
 		float x = Random.Range(-1.0f, 1f) * scale;
 		Vector2 force = new Vector2(x, Random.Range(-1.0f, 1f)* scale/5);
@@ -49,6 +50,11 @@ public class FishBehaviour : MonoBehaviour
 		eatCount += i;
 	}
 
+	void OnMouseDown()
+	{
+		pushToRandomDirection(scaleBig);
+
+	}
 
 
 	private void OnTriggerEnter2D(Collider2D other)

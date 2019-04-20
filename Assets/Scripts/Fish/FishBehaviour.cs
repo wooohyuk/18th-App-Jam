@@ -38,7 +38,7 @@ public class FishBehaviour : MonoBehaviour
 	{
 		float x = Random.Range(-1.0f, 1f) * scale;
 		Vector2 force = new Vector2(x, Random.Range(-1.0f, 1f)* scale/5);
-		bool flipX = x > 0;
+		bool flipX = x < 0;
 		_spriteRenderer.flipX = flipX;
 		rgBody.AddForce(force);
 	}

@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class StoryManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private List<StoryData> listStoryData = new List<StoryData>();
+    private int storyIndex = 1;
+
+    private void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void InitStory()
     {
-        
+        // AddStroy(storyIndex++, "우에");
+    }
+
+    private void AddStroy(int index, string message)
+    {
+        listStoryData.Add(new StoryData() {index = index, message = message});
     }
 }

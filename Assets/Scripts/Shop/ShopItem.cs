@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 
 [System.Serializable]
-public class StoryData
+public class ShopItem
 {
-    public int index;
-    public string message;
+    
 }

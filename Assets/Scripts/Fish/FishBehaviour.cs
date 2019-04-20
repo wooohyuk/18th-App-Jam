@@ -5,22 +5,22 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class FishBehaviour : MonoBehaviour
 {
 	private Rigidbody2D rgBody;
 
+	private SpriteRenderer _spriteRenderer;
 	// Use this for initialization
 	void Start ()
 	{
 		rgBody = GetComponent<Rigidbody2D>();
+		_spriteRenderer = GetComponent<SpriteRenderer>();
 		StartCoroutine(PushEveryNSec());
 	}
 
 	// Update is called once per frame
 
-	void Update () {
-
-	}
 
 	IEnumerator PushEveryNSec()
 	{
@@ -32,12 +32,14 @@ public class FishBehaviour : MonoBehaviour
 
 	}
 
-	float scale = 60f;
+	public float scale = 12f;
 
 	void pushToRandomDirection()
 	{
-		Vector2 force = new Vector2(Random.Range(-1.0f, 1f) * scale, Random.Range(-1.0f, 1f)* scale);
-		print(force);
+		float x = Random.Range(-1.0f, 1f) * scale;
+		Vector2 force = new Vector2(x, Random.Range(-1.0f, 1f)* scale/5);
+		bool flipX = x > 0;
+		_spriteRenderer.flipX = flipX;
 		rgBody.AddForce(force);
 	}
 }

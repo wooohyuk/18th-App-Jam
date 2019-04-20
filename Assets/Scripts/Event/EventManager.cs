@@ -8,11 +8,12 @@ public class EventManager : MonoBehaviour
     public List<EventData> listEvent = new List<EventData>();
     private int eventIndex = 0;
 
-    private bool isShow = false;
+    public bool isShow = false;
 
     private void Start()
     {
         InitEvent();
+
         StartCheckEvent();
     }
 
@@ -45,8 +46,16 @@ public class EventManager : MonoBehaviour
         });
     }
 
-    public void ShowEvent()
+    public void ShowEvent(int type)
     {        
+        if(type == 1)
+        {
+
+        }
+        else
+        {
+            
+        }
         StartCoroutine(CorHideEvent());
     }
 
@@ -63,11 +72,14 @@ public class EventManager : MonoBehaviour
         UIManager.Instance.imageTalk.GetComponent<Image>().color = new Color(1, 1, 1, 0);
         UIManager.Instance.imageTalk.SetActive(false);
 
+        isShow = false;
+
         StartCheckEvent();
     }
 
     private void StartCheckEvent()
     {
+        StopCoroutine(CorCheckEvent());
         StartCoroutine(CorCheckEvent());
     }
 
@@ -76,18 +88,15 @@ public class EventManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         int rand = Random.Range(1, 101);
+        Debug.Log(rand);
 
         if(rand > 0 && rand <= 40)
         {
-            isShow = true;
-
             UIManager.Instance.imageTalk.SetActive(true);
-
             UIManager.Instance.imageTalk.GetComponent<Image>().color = new Color(1, 1, 1, 0);
 
-            int randEvent = Random.Range(0, 7);
+            int randEvent = Random.Range(0, 18); // 0 ~ 7 / 7 ~ 17
             UIManager.Instance.textTalk.text = listEvent[randEvent].eventContext;
-            Debug.Log(rand);
 
             for(int i=0; i<100; i++)
             {
@@ -95,19 +104,12 @@ public class EventManager : MonoBehaviour
                 UIManager.Instance.imageTalk.GetComponent<Image>().color = new Color(1, 1, 1, UIManager.Instance.imageTalk.GetComponent<Image>().color.a + 0.01f);
             }
 
-            ShowEvent();
+            if(randEvent > 7)
+                ShowEvent(1);
+            else
+                ShowEvent(2);
         }
         else
             StartCheckEvent();
-    }
-
-    IEnumerator CorCheckTalk()
-    {
-        yield return new WaitForSeconds(6f);
-        
-        if(!isShow)
-        {
-            
-        }
     }
 }

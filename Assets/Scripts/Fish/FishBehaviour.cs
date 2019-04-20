@@ -42,4 +42,21 @@ public class FishBehaviour : MonoBehaviour
 		_spriteRenderer.flipX = flipX;
 		rgBody.AddForce(force);
 	}
+
+	private int eatCount = 0;
+	public void feed(int i)
+	{
+		eatCount += i;
+	}
+
+
+
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag("Food"))
+		{
+			this.feed(1);
+			Destroy(other.gameObject);
+		}
+	}
 }

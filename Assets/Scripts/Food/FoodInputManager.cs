@@ -10,14 +10,13 @@ public class FoodInputManager : MonoBehaviour
     }
 
     public Camera camera;
-    public bool isFoodMode = false;
     Ray2D ray;
     RaycastHit2D hit;
     public GameObject prefab;
 
     void Update()
     {
-        if (isFoodMode)
+        if (MainSceneManager.Instance._mainSceneModes == MainSceneModes.Feed)
         {
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = 5f;
@@ -27,7 +26,6 @@ public class FoodInputManager : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 Vector2 position = new Vector2(v.x, v.y);
-                print(position);
                 GameObject obj = Instantiate(prefab,
                     position,
                     Quaternion.identity);

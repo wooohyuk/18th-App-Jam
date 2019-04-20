@@ -20,7 +20,6 @@ public class ScrollCameraManager : MonoBehaviour
     {
 
         float move = joystick.Vertical * scale * Time.deltaTime;
-        print(move);
         Vector3 targetPosition = transform.TransformPoint(new Vector3(0, move));
 
         // Smoothly move the camera towards that target position

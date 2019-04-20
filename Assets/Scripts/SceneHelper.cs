@@ -14,7 +14,7 @@ public enum SceneType
 	Lobby = 0,
 	Main = 1,
 	Book = 2,
-
+	PondOutSide = 3
 }
 
 #endregion

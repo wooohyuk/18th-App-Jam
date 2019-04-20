@@ -11,22 +11,27 @@ public class FoodBehaviour : MonoBehaviour
 	{
 		rgBody = GetComponent<Rigidbody2D>();
 		StartCoroutine(fallWithMoving());
+		Destroy(this, 20);
 	}
 
-	private bool isForceToLeft = true;
-	
 	// Update is called once per frame
-	private float forceScale = 30;
+	private float forceScale = 10;
 	private float waitFor = 0.5f;
 	IEnumerator fallWithMoving()
 	{
 		while (true)
 		{
-			int direction = isForceToLeft ? -1 : 1;
+			int direction = getRandomDirection() ? -1 : 1;
 			Vector2 force = new Vector2(direction * forceScale, 0);
 			rgBody.AddForce(force);
 			yield return new WaitForSeconds(waitFor);
-			isForceToLeft = !isForceToLeft;
 		}
+	}
+
+	bool getRandomDirection()
+	{
+		var rand = Random.Range(0, 2);
+		print(rand);
+		return rand == 0;
 	}
 }

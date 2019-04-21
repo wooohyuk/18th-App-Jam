@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject canvas;
     public GameObject uiCamera;
+    public int test;
 
     private void Awake()
     {

@@ -36,7 +36,7 @@ public class TimeManager : MonoBehaviour
         
         if(!isStop)
         {
-            time += 2.8f; // 288s
+            time += 8.8f; // 288s
 
             int percent = (int) ((time / 86400) * 100);
             if(percent != 0 && percent % 20 == 0)
@@ -48,7 +48,7 @@ public class TimeManager : MonoBehaviour
                     UIManager.Instance.NextBg(GameManager.Instance.progress);
                     UIManager.Instance.ShowNewstory();
 
-                    isStop = true;
+//                    isStop = true;
                 }
             }
 

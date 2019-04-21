@@ -46,11 +46,12 @@ public class EventManager : MonoBehaviour
         });
     }
 
-    public void ShowEvent(int type)
+    public void ShowEvent(int type, int id)
     {        
         if(type == 1)
         {
-
+            if(id == 0)
+                UIManager.Instance.ShowDeer();
         }
         else
         {
@@ -105,9 +106,9 @@ public class EventManager : MonoBehaviour
             }
 
             if(randEvent > 7)
-                ShowEvent(1);
+                ShowEvent(1, randEvent);
             else
-                ShowEvent(2);
+                ShowEvent(2, randEvent);
         }
         else
             StartCheckEvent();

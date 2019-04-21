@@ -36,9 +36,28 @@ public class ShopManager : MonoBehaviour
 
     private void InitShopItem()
     {
-        AddShopItem("개구리", 1, 100);
-        AddShopItem("너구리", 1, 500);
-        AddShopItem("딱다구리", 1, 1000);
+        // 박지 물고기 1 - 포포
+        // 박지 물고기 2 - 셸리
+        // 박지 물고기 3 - 치치
+        // 박지 물고기 4 - 그랑
+        // 박지 물고기 5 - 배런
+        // 박지 물고기 6 - 레드
+        // 박지 물고기 7 - 옐로우
+        // 영어 물고기 블루 - 우정
+        // 영어 물고기 오렌 - 희망
+        // 영어 물고기 핑크 - 사랑
+        // 영어 물고기 퍼플 - 믿음
+        AddShopItem("포포", 1, 100);
+        AddShopItem("셀리", 1, 400);
+        AddShopItem("치치", 1, 900);
+        AddShopItem("그랑", 1, 1600);
+        AddShopItem("배런", 1, 2300);
+        AddShopItem("레드", 1, 3900);
+        AddShopItem("옐로우", 1, 4700);
+        AddShopItem("우정", 1, 5900);
+        AddShopItem("희망", 1, 8200);
+        // AddShopItem("사랑", 1, 12600);
+        // AddShopItem("믿음", 1, 16700);
 
         AddShopItem("귀여운 팡무", 2, 1000);
         AddShopItem("아름다운 팡무", 2, 5000);
@@ -53,6 +72,8 @@ public class ShopManager : MonoBehaviour
         AddShopItem("핫식스", 3, 4000);
         AddShopItem("레드불", 3, 5000);
         AddShopItem("몬스터", 3, 6000);
+        
+        ShowItems(1);
     }
 
     public void ShowItems(int type)

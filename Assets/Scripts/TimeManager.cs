@@ -10,6 +10,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField]
     private float time = 0;
 
+    public bool isStop = false;
+
     private void Awake()
     {
         if(TimeManager.Instance == null)
@@ -31,19 +33,27 @@ public class TimeManager : MonoBehaviour
     private IEnumerator CorTimer()
     {
         yield return new WaitForSeconds(.01f);
-        time += 2.8f; // 288s
-
-        int percent = (int) ((time / 86400) * 100);
-        if(percent != 0 && percent % 20 == 0)
+        
+        if(!isStop)
         {
-            if(percent / 20 > GameManager.Instance.progress)
-            {
-                GameManager.Instance.progress ++;
-                UIManager.Instance.ShowNewstory();
-            }
-        }
+            time += 2.8f; // 288s
 
-        UIManager.Instance.SetTextTime(time);
+            int percent = (int) ((time / 86400) * 100);
+            if(percent != 0 && percent % 20 == 0)
+            {
+                if(percent / 20 > GameManager.Instance.progress)
+                {
+                    GameManager.Instance.progress ++;
+                    
+                    UIManager.Instance.NextBg(GameManager.Instance.progress);
+                    UIManager.Instance.ShowNewstory();
+
+                    isStop = true;
+                }
+            }
+
+            UIManager.Instance.SetTextTime(time);
+        }
         
         StartTimer();
     }

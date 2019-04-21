@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     public Text textTime;
     public Text textProgress;
 
+    public Image imgDeer;
+
     public GameObject btnNewstory;
 
     public GameObject imageTalk;
@@ -19,12 +21,52 @@ public class UIManager : MonoBehaviour
     public GameObject panelShop;
     public GameObject panelShopItemContent;
 
+    public Sprite[] imageBG = new Sprite[5];
+    public GameObject spriteBg;
+
     private void Awake()
     {
         if(UIManager.Instance == null)
             UIManager.Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    public void ShowDeer()
+    {
+        StartCoroutine(CorShowDeer());
+    }
+
+    public void HideDeer()
+    {
+        StartCoroutine(CorHideDeer());
+    }
+
+    public void NextBg(int index)
+    {
+        Debug.Log(index);
+        spriteBg.GetComponent<SpriteRenderer>().sprite = imageBG[2];
+    }
+
+    IEnumerator CorShowDeer()
+    {
+        imgDeer.color = new Color(1, 1, 1, 0);
+        for(int i=0; i<100; i++)
+        {
+            yield return new WaitForSeconds(.01f);
+            imgDeer.color = new Color(1, 1, 1, imgDeer.color.a + 0.01f);
+        }
+        imgDeer.color = new Color(1, 1, 1, 1);
+    }
+
+    IEnumerator CorHideDeer()
+    {
+        for(int i=0; i<100; i++)
+        {
+            yield return new WaitForSeconds(.01f);
+            imgDeer.color = new Color(1, 1, 1, imgDeer.color.a - 0.01f);
+        }
+        imgDeer.color = new Color(1, 1, 1, 0);
     }
 
     public void ShowShop()
@@ -62,6 +104,8 @@ public class UIManager : MonoBehaviour
             btnNewstory.GetComponent<Image>().color = new Color(1, 1, 1, btnNewstory.GetComponent<Image>().color.a - 0.01f);
         }
         btnNewstory.SetActive(false);
+
+        TimeManager.Instance.isStop = false;
     }
 
     public void SetTextStellar(int stellar)

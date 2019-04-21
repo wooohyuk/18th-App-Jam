@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 90.399994, y: 31.899994}
+  m_AnchoredPosition: {x: 90.400024, y: 31.900024}
   m_SizeDelta: {x: 50, y: 74.08}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &32083945
@@ -291,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 68782076}
   - component: {fileID: 68782077}
+  - component: {fileID: 68782078}
   m_Layer: 0
   m_Name: BG-back
   m_TagString: Untagged
@@ -312,6 +313,7 @@ Transform:
   - {fileID: 1489344313}
   - {fileID: 1743774625}
   - {fileID: 875245297}
+  - {fileID: 456609206}
   m_Father: {fileID: 632556208}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -363,6 +365,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &68782078
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68782075}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0dcbb32599095493cbd42a4eb18e28c1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &93866654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,9 +1251,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 456609205}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.9142857, y: -5.428571, z: -1028.857}
+  m_LocalScale: {x: 2.8571427, y: 2.8571427, z: 2.8571427}
   m_Children:
   - {fileID: 1355745716}
   - {fileID: 883375270}
@@ -1249,8 +1270,8 @@ Transform:
   - {fileID: 1547151208}
   - {fileID: 386633251}
   - {fileID: 2012638363}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 68782076}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &473415636
 GameObject:
@@ -3317,6 +3338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629029754}
   - component: {fileID: 1629029753}
+  - component: {fileID: 1629029755}
   m_Layer: 0
   m_Name: FishManager
   m_TagString: Untagged
@@ -3340,6 +3362,13 @@ MonoBehaviour:
   - {fileID: 1079223940935654, guid: ee88419f255ef4f88bd3a36eb430a4c7, type: 3}
   - {fileID: 4072919587011340821, guid: fcb0727be32e349f0a00c980dfe10239, type: 3}
   - {fileID: 5892943338460193335, guid: 2b340ca8dc6114896b0b7f9f1e5764a8, type: 3}
+  - {fileID: 6660972411063296626, guid: 95fac43bbf0af4a939527ea413268437, type: 3}
+  - {fileID: 3969491493524553165, guid: e1f8286ee879c4549a7581fa9d11c4f7, type: 3}
+  - {fileID: 4546515271590984044, guid: cf94eb73777a84ca68f4c4ce76c0e88d, type: 3}
+  - {fileID: 7860961430253489460, guid: 41f3c578ffb824fa794d42d195322ba8, type: 3}
+  - {fileID: 4407176993616315207, guid: f4d78234397294c4f8375c268f4019ec, type: 3}
+  - {fileID: 8966887313690168322, guid: ef8982ce8216b4dff89b5b5cca6e0959, type: 3}
+  - {fileID: 5478073467209263126, guid: 36d68d7895d884386b416b46fb2a95ae, type: 3}
   instantiateLocations:
   - {fileID: 1557366152}
   - {fileID: 473415637}
@@ -3347,7 +3376,7 @@ MonoBehaviour:
   - {fileID: 5445357}
   - {fileID: 1810356745}
   fishRootTrans: {fileID: 1629029754}
-  initialFishCount: 10
+  initialFishCount: 20
 --- !u!4 &1629029754
 Transform:
   m_ObjectHideFlags: 0
@@ -3367,6 +3396,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1629029755
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629029752}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 188c74afcfe36415e9ef759e3b900ec7, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 188c74afcfe36415e9ef759e3b900ec7, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1743774624
 GameObject:
   m_ObjectHideFlags: 0

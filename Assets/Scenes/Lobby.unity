@@ -922,7 +922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f897ed8325cdf47a99cb651c81db4da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: 1
+  targetScene: 3
 --- !u!1001 &6267897393405208477
 PrefabInstance:
   m_ObjectHideFlags: 0

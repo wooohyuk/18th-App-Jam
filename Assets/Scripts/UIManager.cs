@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -21,8 +22,14 @@ public class UIManager : MonoBehaviour
     public GameObject panelShop;
     public GameObject panelShopItemContent;
 
+    public GameObject panelShop2;
+
     public Sprite[] imageBG = new Sprite[5];
     public GameObject spriteBg;
+
+    public SpriteRenderer spriteFish1;
+    public SpriteRenderer spriteFish2;
+    public SpriteRenderer spriteFish3;
 
     private void Awake()
     {
@@ -30,6 +37,79 @@ public class UIManager : MonoBehaviour
             UIManager.Instance = this;
         else
             Destroy(gameObject);
+    }    
+
+    private void Start() {
+        StartCoroutine(CorFadeFish1());
+        StartCoroutine(CorFadeFish2());
+        StartCoroutine(CorFadeFish3());
+    }
+
+    IEnumerator CorFadeFish1()
+    {
+        spriteFish1.color = new Color(1, 1, 1, 0);
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish1.color = new Color(1, 1, 1, spriteFish1.color.a + .01f);
+            yield return new WaitForSeconds(.05f);
+        }
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish1.color = new Color(1, 1, 1, spriteFish1.color.a - .01f);
+            yield return new WaitForSeconds(.05f);
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        StartCoroutine(CorFadeFish1());
+    }
+
+    IEnumerator CorFadeFish2()
+    {
+        spriteFish2.color = new Color(1, 1, 1, 1);
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish2.color = new Color(1, 1, 1, spriteFish2.color.a - .01f);
+            yield return new WaitForSeconds(.1f);
+        }
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish2.color = new Color(1, 1, 1, spriteFish2.color.a + .01f);
+            yield return new WaitForSeconds(.1f);
+        }
+
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(CorFadeFish2());
+    }
+
+     IEnumerator CorFadeFish3()
+    {
+        spriteFish3.color = new Color(1, 1, 1, 0);
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish3.color = new Color(1, 1, 1, spriteFish3.color.a + .01f);
+            yield return new WaitForSeconds(.03f);
+        }
+
+        for(int i=1; i<=100; i++)
+        {
+            spriteFish3.color = new Color(1, 1, 1, spriteFish3.color.a - .01f);
+            yield return new WaitForSeconds(.03f);
+        }
+
+        yield return new WaitForSeconds(4f);
+
+        StartCoroutine(CorFadeFish1());
+    }
+
+    public void GoDeep()
+    {
+        SceneFader.instance.LoadSceneWhenFadingComplete(SceneType.Main);
     }
 
     public void ShowDeer()
@@ -72,6 +152,16 @@ public class UIManager : MonoBehaviour
     public void ShowShop()
     {
         panelShop.SetActive(true);
+    }
+
+    public void ShowShop2()
+    {
+        panelShop2.SetActive(true);
+    }
+
+    public void HideShop2()
+    {
+        panelShop2.SetActive(false);
     }
 
     public void ShowNewstory()
